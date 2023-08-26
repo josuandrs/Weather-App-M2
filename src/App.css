@@ -1,0 +1,48 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.ctn{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+}
+.head{
+  width: 30%;
+  background-color:#1E213A;
+  display: flex;
+  flex-direction: column;
+}
+.headSection{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.head :nth-child(1){
+  height: 10%;
+}
+.head :nth-child(2){
+  height: 40%;
+  background-image: url(../public/Cloud-background.png);
+  background-repeat: no-repeat;
+  background-size: 150%;
+  background-position: center;
+}
+.head :nth-child(3){
+  height: 20%;
+}
+.head :nth-child(4){
+  height: 15%;
+}
+.head :nth-child(5){
+  height: 7%;
+}
+.head :nth-child(6){
+  height: 8%;
+}
+.main{
+  width: 70%;
+  background-color:#100E1D;
+}
