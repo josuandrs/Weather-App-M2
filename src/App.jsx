@@ -13,7 +13,8 @@ const App = () => {
     temperature: "",
     location: "",
     visibility: "",
-    pressure: ""
+    pressure: "",
+    description: "",
   });
   const [forecastData, setForecastData] = useState([]);
   const [currentDateTime, setCurrentDateTime] = useState(new Date());
@@ -25,6 +26,28 @@ const App = () => {
 
     return () => clearInterval(interval);
   }, []);
+
+  function NavBar (){
+    const [sidebarVisible, setSidebarVisible] = useState(false);
+    const toggleSidebar = (e) => {
+      e.preventDefault();
+      setSidebarVisible(!sidebarVisible);
+    }
+    return(
+      <div className="navbar">
+        <button className="t-btn" onClick={toggleSidebar}>Search for place</button>
+        <div className={`search-sidebar ${sidebarVisible ? "visible" : ""}`}>
+          <div className="sidebar-content">
+            <input className="s-btn" type="text" placeholder="Search location" />
+            <button className="btn">Search</button>
+          </div>
+          <button className="close-button" onClick={toggleSidebar}>
+            Close
+          </button>
+        </div>
+      </div>
+    )
+  }
 
   const getWeatherImage = (temperature) => {
     if (temperature < 10) {
@@ -52,7 +75,8 @@ const App = () => {
         temperature: data.main.temp,
         location: data.name,
         visibility: data.visibility,
-        pressure: data.main.pressure
+        pressure: data.main.pressure,
+        description: data.weather.description,
       });
 
       const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${element[0].value}&units=metric&appid=${apiKey}`;
@@ -64,23 +88,28 @@ const App = () => {
     } catch (error) {
       console.error("Error fetching weather data:", error);
     }
+
+    
+
   };
 
   return (
     <div className='ctn'>
       <div className='head'>
-        <div className='headSection'>
+        <div className='headSection1'>
+        <NavBar />
           <input type="text" className='cityInput' placeholder='Busqueda' />
           <div className='search-icon' onClick={search}>
-            <img src={search_icon} alt="" />
+            
           </div>
         </div>
-        <div className='headSection'>icono</div>
-        <img src={getWeatherImage(weatherData.temperature)} alt="Weather" />
-        <div className='headSection'>{weatherData.temperature}°C</div>
-        <div className='headSection'>{currentDateTime.toLocaleTimeString()}</div>
-        <div className='headSection'>{currentDateTime.toLocaleDateString()}</div>
-        <div className='headSection'>{weatherData.location}</div>
+        <div className='headSection2'>
+          <img className="icon" src={getWeatherImage(weatherData.temperature)} alt="Weather" />
+        </div>
+        <div className='headSection3'>{Math.floor(weatherData.temperature)}°C</div>
+        <div className='headSection4'>{weatherData.description}</div>
+        <div className='headSection5'>{currentDateTime.toLocaleDateString()}</div>
+        <div className='headSection6'>{weatherData.location}</div>
       </div>
       <div className='main'>
         <div className='mainUp'>
@@ -88,8 +117,9 @@ const App = () => {
           <div className='mainUp2'>
             {forecastData.map((forecastItem, index) => (
               <div className='bloque' key={index}>
-                {forecastItem.main.temp}°C
+                <div className='bloqueMainUp2'>Fecha</div>
                 <img src={getWeatherImage(forecastItem.main.temp)} alt="Weather" />
+                {forecastItem.main.temp}°C
               </div>
             ))}
           </div>
@@ -97,10 +127,26 @@ const App = () => {
         <div className='mainDown'>
           <h1>Today’s Highlights</h1>
           <div className='mainDownBloques'>
-            <div className='bloque1'>Wind status: {weatherData.windSpeed}</div>
-            <div className='bloque13'>Humidity: {weatherData.humidity}</div>
-            <div className='bloque2'>Visibility: {weatherData.visibility}</div>
-            <div className='bloque2'>Air Pressure: {weatherData.pressure}</div>
+            <div className='bloque1'><span>Wind status:</span> 
+              <div className='subBloque'>
+                {weatherData.windSpeed} <span>mph</span>
+              </div> 
+            </div>
+            <div className='bloque13'><span>Humidity: </span>
+              <div className='subBloque'>
+                {weatherData.humidity} <span>%</span>
+              </div>
+            </div>
+            <div className='bloque2'><span>Visibility:</span> 
+              <div className='subBloque'>
+                {weatherData.visibility} <span>miles</span>
+              </div>
+            </div>
+            <div className='bloque2'><span>Air Pressure:</span> 
+              <div className='subBloque'>
+                {weatherData.pressure} <span>mb</span>
+              </div>
+            </div>
           </div>
         </div>
         <div className='mainFoter'>username</div>
