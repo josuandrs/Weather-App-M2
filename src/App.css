@@ -22,13 +22,18 @@
 }
 .head :nth-child(1){
   height: 9%;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 10px;
 }
+
 .head :nth-child(2){
   height: 38%;
   background-image: url(../public/Cloud-background.png);
   background-repeat: no-repeat;
   background-size: 150%;
   background-position: center;
+  opacity: .1;
 }
 .head :nth-child(3){
   height: 15%;
@@ -70,6 +75,7 @@
   width: 120px;
   height: 177px;
   background-color: #1E213A;
+  
 }
 .mainDown{
   height: 55%;
@@ -89,6 +95,13 @@
   gap: 30px;
 }
 .bloque1{
+  width: 328px;
+  height: 204px;
+  background-color: #1E213A;
+  display: flex;
+  justify-content: center;
+}
+.bloque13{
   width: 328px;
   height: 204px;
   background-color: #1E213A;
@@ -129,7 +142,8 @@
   .head :nth-child(1){
     height: 10%;
   }
-  .head :nth-child(2){
+  
+ .head :nth-child(2){
     height: 40%;
     background-image: url(../public/Cloud-background.png);
     background-repeat: no-repeat;
@@ -148,18 +162,28 @@
   .head :nth-child(6){
     height: 8%;
   }
+  .search-icon{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   width: 78px;
+   background-color: aliceblue;
+   cursor: pointer;
+
+  }
   .main{
     height: 100%;
     width: 70%;
     display: flex;
     flex-direction: column;
-    padding: 0 180px;
+    padding: 0 100px;
   }
   .mainUp{
     height: 40%;
   }
   .mainUp1{
     height: 20%;
+    margin-right: 1px;
   }
   .mainUp2{
     height: 80%;
@@ -177,5 +201,18 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
+  }
+}
+@media screen and (min-width: 1440px){
+  .ctn{
+    width: 100vw;
+    height: 1024px;
+  }
+  .head :nth-child(2){
+    height: 40%;
+    background-size: 130%;
+  }
+  .main{
+    padding: 0 150px;
   }
 }
