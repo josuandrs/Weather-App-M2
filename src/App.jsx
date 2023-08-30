@@ -1,5 +1,4 @@
-import
- { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import './App.css';
 import search_icon from '../public/search_icon.png';
 import LightCloud from '../public/LightCloud.png'
