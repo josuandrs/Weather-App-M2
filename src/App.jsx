@@ -5,6 +5,7 @@ import LightCloud from '../public/LightCloud.png'
 import Shower from '../public/Shower.png'
 import Thunderstorm from '../public/Thunderstorm.png'
 
+
 const App = () => {
   const apiKey = "cbf7755681f17252d68bc9ab2bc502be";
   const [weatherData, setWeatherData] = useState({
@@ -27,28 +28,7 @@ const App = () => {
     return () => clearInterval(interval);
   }, []);
 
-  function NavBar (){
-    const [sidebarVisible, setSidebarVisible] = useState(false);
-    const toggleSidebar = (e) => {
-      e.preventDefault();
-      setSidebarVisible(!sidebarVisible);
-    }
-    return(
-      <div className="navbar">
-        <button className="t-btn" onClick={toggleSidebar}>Search for place</button>
-        <div className={`search-sidebar ${sidebarVisible ? "visible" : ""}`}>
-          <div className="sidebar-content">
-            <input className="s-btn" type="text" placeholder="Search location" />
-            <button className="btn">Search</button>
-          </div>
-          <button className="close-button" onClick={toggleSidebar}>
-            Close
-          </button>
-        </div>
-      </div>
-    )
-  }
-
+ 
   const getWeatherImage = (temperature) => {
     if (temperature < 10) {
       return Thunderstorm; //FRIO
@@ -89,8 +69,28 @@ const App = () => {
       console.error("Error fetching weather data:", error);
     }
 
-    
+  };
+  const NavBar =() =>{
+    const [sidebarVisible, setSidebarVisible] = useState(false);
+    const toggleSidebar = (e) => {
+      e.preventDefault();
+      setSidebarVisible(!sidebarVisible);
 
+      return(
+        <div className="navbar">
+          <button className="t-btn" onClick={toggleSidebar}>Search for place</button>
+          <div className={`search-sidebar ${sidebarVisible ? "visible" : ""}`}>
+            <div className="sidebar-content">
+              <input className="cityInput" type="text" placeholder="Search location" />
+              <button className="btn">Search</button>
+            </div>
+            <button className="close-button" onClick={toggleSidebar}>
+              Close
+            </button>
+          </div>
+        </div>
+      )
+  
   };
 
   return (
@@ -100,14 +100,15 @@ const App = () => {
         <NavBar />
           <input type="text" className='cityInput' placeholder='Busqueda' />
           <div className='search-icon' onClick={search}>
-            
           </div>
         </div>
         <div className='headSection2'>
-          <img className="icon" src={getWeatherImage(weatherData.temperature)} alt="Weather" />
+          <div className="icon"> 
+            <img src={getWeatherImage(weatherData.temperature)} alt="Weather" />
+          </div>
         </div>
         <div className='headSection3'>{Math.floor(weatherData.temperature)}°C</div>
-        <div className='headSection4'>{weatherData.description}</div>
+        <div className='headSection'>{currentDateTime.toLocaleTimeString()}</div>
         <div className='headSection5'>{currentDateTime.toLocaleDateString()}</div>
         <div className='headSection6'>{weatherData.location}</div>
       </div>
@@ -153,6 +154,6 @@ const App = () => {
       </div>
     </div>
   );
-};
+;
 
 export default App;

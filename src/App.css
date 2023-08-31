@@ -31,7 +31,8 @@
 }
 
 .search-sidebar.visible {
-  width: 250px;
+  width: 100%;
+  height: 800px;
 }
 
 .sidebar-content {
@@ -73,19 +74,25 @@
 
 .headSection2{
   height: 38%;
-  background-image: url();
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2)), url(../public/Cloud-background.png);
-  background-repeat: no-repeat;
-  background-size: 150%;
-  background-position: center;
   display: flex;
   justify-content: center;
   align-items: center;
-  
+  position: relative;
 }
-.headSection2 .icon{
-  opacity: 1;
+.headSection2::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url(../public/Cloud-background.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  opacity: 0.1;
 }
+
 .headSection3{
   height: 15%;
   font-weight: 700;
