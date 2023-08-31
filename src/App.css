@@ -38,7 +38,8 @@
 .sidebar-content {
   padding: 20px;
   display: flex;
-  justify-content: space-between;
+  
+  flex-direction: column;
 }
 .t-btn{
   cursor: pointer;
@@ -58,7 +59,7 @@
 }
 .sidebar-content > input{
   background-image: url(../public/bx-search.svg);
-  background-repeat: no-repeat;
+  
 }
 
 .btn{
@@ -69,7 +70,11 @@
   border: none;
   outline: none;
 }
-
+.botones{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
 .close-button {
   position: absolute;
   top: 20px;
@@ -79,7 +84,30 @@
   background-color: #2741c5;
   color: aliceblue;
 }
-
+.cities{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px 0;
+  margin-top: 30px;
+}
+.city {
+  padding: 15px 10px;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+}
+.city > i{
+  color: rgb(30, 33, 58);
+}
+.city:hover{
+  border: 1px solid #6E707A;
+  transition: all 0.3s;
+}
+.city:hover >i{
+  color: #fff;
+}
 .headSection1{
   height: 9%;
   display: flex;
@@ -123,12 +151,18 @@
 .headSection3{
   height: 15%;
   font-weight: 700;
-  font-size: 100px;
+  font-size: 180px;
   display: flex;
   justify-content: center;
+  align-items: center;
   color: #fff;
 }
-
+.headSection3 > span{
+  font-weight: 500;
+  font-size: 40px;
+  display: flex;
+  align-items: center;
+}
 .headSection6{
   height: 12%;
   display: flex;
@@ -227,6 +261,24 @@
 .bloque1 > span{
   margin-bottom: 10px;
 }
+.flecha{
+  padding-top: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.subFlecha{
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #585676;
+  border-radius: 50%;
+}
+
 .bloque13{
   width: 328px;
   height: 204px;
@@ -236,6 +288,14 @@
   align-items: center;
   padding-top: 20px;
   color: #fff;
+}
+.barrita{
+  margin-top: 30px;
+  background-color: rgb(255, 238, 0);
+  width: 250px;
+  height: 8px;
+  border: 1px solid #fff;
+  border-radius: 5px;
 }
 .bloque2{
   width: 328px;
@@ -250,7 +310,7 @@
 .subBloque{
   margin-top: 20px;
   font-weight: 700;
-  font-size: 60px;
+  font-size: 70px;
 }
 .subBloque > span{
   font-weight: 500;
