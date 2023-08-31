@@ -1,0 +1,19 @@
+.headSection4{
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5em;
+  font-weight: 500;
+  color: #fff;
+}
+
+.headSection5{
+  height: 55px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  font-size: .8em;
+  font-weight: 500;
+  color: #fff;
+}

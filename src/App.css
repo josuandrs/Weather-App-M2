@@ -22,7 +22,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  background-color: #f15e5e;
+  background-color: rgb(30, 33, 58);
   overflow-x: hidden;
   transition: 0.3s;
   padding-top: 60px;
@@ -37,31 +37,46 @@
 
 .sidebar-content {
   padding: 20px;
+  display: flex;
+  justify-content: space-between;
 }
 .t-btn{
   cursor: pointer;
-  padding: 5px 15px;
-  border-radius: 20px;
-  background-color: #000;
+  padding: 8px 17px;
+  background-color: #6E707A;
   color: aliceblue;
 }
+.cityInput{
+  width: 250px;
+  height: 45px;
+  background-color: transparent;
+  border: 1px solid #6E707A;
+  font-size: 15px;
+  color: #fff;
+  padding-left: 35px;
+  background-position: 8px;
+}
+.sidebar-content > input{
+  background-image: url(../public/bx-search.svg);
+  background-repeat: no-repeat;
+}
+
 .btn{
-  margin-top: 10px;
   cursor: pointer;
-  padding: 5px 15px;
-  border-radius: 20px;
-  background-color: #000;
+  padding: 15px 15px;
+  background-color: #2741c5;
   color: aliceblue;
+  border: none;
+  outline: none;
 }
 
 .close-button {
   position: absolute;
   top: 20px;
-  right: 10px;
+  right: 20px;
   cursor: pointer;
   padding: 5px 15px;
-  border-radius: 20px;
-  background-color: #000;
+  background-color: #2741c5;
   color: aliceblue;
 }
 
@@ -69,9 +84,21 @@
   height: 9%;
   display: flex;
   justify-content: space-between;
-  padding: 10px 10px;
+  padding: 30px 20px;
 }
-
+.headSection1 .gps { 
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #6E707A;
+  border-radius: 50%;
+}
+.headSection1 .gps > i{
+  color: #fff;
+  font-size: 30px;
+}
 .headSection2{
   height: 38%;
   display: flex;
@@ -101,14 +128,15 @@
   justify-content: center;
   color: #fff;
 }
-.headSection4{
-  height: 13%;
-}
-.headSection5{
-  height: 7%;
-}
+
 .headSection6{
-  height: 18%;
+  height: 12%;
+  display: flex;
+  justify-content: center;
+  padding-top: 1.4em;
+  font-size: 1.3em;
+  font-weight: 500;
+  color: #fff;
 }
 .main{
   height: 1718px;
@@ -124,10 +152,26 @@
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
-  margin-right: 20px;
-  color: aliceblue;
+  margin-top: 20px;
+  margin-right: 30px;
+  gap: 20px;
+}
+.mainUps{
+  width: 30px;
+  height: 30px;
+  background-color: #585676;
+  color: #fff;
   font-weight: 600;
   font-size: 1.2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 50%;
+}
+.mainUps:hover{
+  color: #585676;
+  background-color: #fff;
 }
 .mainUp2{
   height: 95%;
@@ -218,8 +262,9 @@
   justify-content: center;
   align-items: flex-end;
   padding-bottom: 15px;
+  color: #A09FB1;
 }
-@media screen and (min-width: 1025px){
+@media screen and (min-width: 1280px){
   .ctn{
     width: 100vw;
     height: 1024px;
@@ -232,18 +277,78 @@
     display: flex;
     flex-direction: column;
   }
-  .headSection{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .head :nth-child(1){
-    height: 10%;
+  .search-sidebar {
+    width: 0;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgb(30, 33, 58);
+    overflow-x: hidden;
+    transition: 0.3s;
+    padding-top: 60px;
+    z-index: 1000;
+    
   }
   
- .head :nth-child(2){
+  .search-sidebar.visible {
+    width: 30%;
+    height: 100vh;
+  }
+  
+  .sidebar-content {
+    padding: 20px;
+  }
+  .t-btn{
+    cursor: pointer;
+    padding: 8px 18px;
+    background-color: #6E707A;
+    color: #fff;
+    font-size: 15px;
+  }
+  .cityInput{
+    width: 250px;
+  }
+  .btn{
+    cursor: pointer;
+    padding: 5px 15px;
+    background-color: #2741c5;
+    color: aliceblue;
+    border: none;
+    outline: none;
+  }
+  
+  .close-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    padding: 5px 15px;
+    background-color: #2741c5;
+    color: aliceblue;
+  }
+  .headSection1{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 10%;
+    padding: 0 40px;
+  }
+  .headSection1 .gps { 
+    height: 50px;
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #6E707A;
+    border-radius: 50%;
+  }
+  .headSection1 .gps > i{
+    color: #fff;
+  }
+  
+  .headSection2{
     height: 40%;
-    background-image: url(../public/Cloud-background.png);
     background-repeat: no-repeat;
     background-size: 150%;
     background-position: center;
@@ -257,8 +362,14 @@
   .head :nth-child(5){
     height: 7%;
   }
-  .head :nth-child(6){
+  .headSection6{
     height: 8%;
+    display: flex;
+    justify-content: center;
+    padding-top: 1.4em;
+    font-size: 1.3em;
+    font-weight: 500;
+    color: #fff;
   }
   .search-icon{
    display: flex;
@@ -306,10 +417,10 @@
     width: 100vw;
     height: 1024px;
   }
-  .head :nth-child(2){
-    height: 40%;
-    background-size: 130%;
+  .cityInput{
+    width: 300px;
   }
+  
   .main{
     padding: 0 150px;
   }
