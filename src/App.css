@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Raleway', sans-serif;
 }
 .ctn{
   width: 100vw;
@@ -11,36 +12,165 @@
 }
 .head{
   height: 810px;
-  background-color:#1E213A;
+  background-color:rgb(30, 33, 58);
   display: flex;
   flex-direction: column;
 }
-.headSection{
+.search-sidebar {
+  width: 0;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgb(30, 33, 58);
+  overflow-x: hidden;
+  transition: 0.3s;
+  padding-top: 60px;
+  z-index: 1000;
+  
+}
+
+.search-sidebar.visible {
+  width: 100%;
+  height: 800px;
+}
+
+.sidebar-content {
+  padding: 20px;
+  display: flex;
+  
+  flex-direction: column;
+}
+.t-btn{
+  cursor: pointer;
+  padding: 8px 17px;
+  background-color: #6E707A;
+  color: aliceblue;
+}
+.cityInput{
+  width: 250px;
+  height: 45px;
+  background-color: transparent;
+  border: 1px solid #6E707A;
+  font-size: 15px;
+  color: #fff;
+  padding-left: 35px;
+  background-position: 8px;
+}
+.sidebar-content > input{
+  background-image: url(../public/bx-search.svg);
+  
+}
+
+.btn{
+  cursor: pointer;
+  padding: 15px 15px;
+  background-color: #2741c5;
+  color: aliceblue;
+  border: none;
+  outline: none;
+}
+.botones{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.close-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  padding: 5px 15px;
+  background-color: #2741c5;
+  color: aliceblue;
+}
+.cities{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px 0;
+  margin-top: 30px;
+}
+.city {
+  padding: 15px 10px;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+}
+.city > i{
+  color: rgb(30, 33, 58);
+}
+.city:hover{
+  border: 1px solid #6E707A;
+  transition: all 0.3s;
+}
+.city:hover >i{
+  color: #fff;
+}
+.headSection1{
+  height: 9%;
+  display: flex;
+  justify-content: space-between;
+  padding: 30px 20px;
+}
+.headSection1 .gps { 
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #6E707A;
+  border-radius: 50%;
+}
+.headSection1 .gps > i{
+  color: #fff;
+  font-size: 30px;
+}
+.headSection2{
+  height: 38%;
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
-.head :nth-child(1){
-  height: 9%;
-}
-.head :nth-child(2){
-  height: 38%;
+.headSection2::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   background-image: url(../public/Cloud-background.png);
   background-repeat: no-repeat;
-  background-size: 150%;
   background-position: center;
+  background-size: cover;
+  opacity: 0.1;
 }
-.head :nth-child(3){
+
+.headSection3{
   height: 15%;
+  font-weight: 700;
+  font-size: 180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
 }
-.head :nth-child(4){
-  height: 13%;
+.headSection3 > span{
+  font-weight: 500;
+  font-size: 40px;
+  display: flex;
+  align-items: center;
 }
-.head :nth-child(5){
-  height: 7%;
-}
-.head :nth-child(6){
-  height: 18%;
+.headSection6{
+  height: 12%;
+  display: flex;
+  justify-content: center;
+  padding-top: 1.4em;
+  font-size: 1.3em;
+  font-weight: 500;
+  color: #fff;
 }
 .main{
   height: 1718px;
@@ -56,8 +186,26 @@
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
-  margin-right: 20px;
-  color: aliceblue;
+  margin-top: 20px;
+  margin-right: 30px;
+  gap: 20px;
+}
+.mainUps{
+  width: 30px;
+  height: 30px;
+  background-color: #585676;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 50%;
+}
+.mainUps:hover{
+  color: #585676;
+  background-color: #fff;
 }
 .mainUp2{
   height: 95%;
@@ -66,10 +214,22 @@
   gap: 30px;
   padding: 30px 52px;
 }
+.bloqueMainUp2{
+  color: #fff;
+}
 .bloque{
   width: 120px;
   height: 177px;
   background-color: #1E213A;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  color: #fff;
+}
+.bloque > img{
+  width: 80%;
+  
 }
 .mainDown{
   height: 55%;
@@ -93,13 +253,68 @@
   height: 204px;
   background-color: #1E213A;
   display: flex;
+  align-items: center;
+  padding-top: 20px;
+  flex-direction: column;
+  color: #fff;
+}
+.bloque1 > span{
+  margin-bottom: 10px;
+}
+.flecha{
+  padding-top: 10px;
+  display: flex;
+  flex-direction: row;
   justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.subFlecha{
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #585676;
+  border-radius: 50%;
+}
+
+.bloque13{
+  width: 328px;
+  height: 204px;
+  background-color: #1E213A;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+  color: #fff;
+}
+.barrita{
+  margin-top: 30px;
+  background-color: rgb(255, 238, 0);
+  width: 250px;
+  height: 8px;
+  border: 1px solid #fff;
+  border-radius: 5px;
 }
 .bloque2{
   width: 328px;
   height: 159px;
   background-color: #1E213A;
-  
+  color: #fff;
+  display: flex;
+  padding-top: 20px;
+  align-items: center;
+  flex-direction: column;
+}
+.subBloque{
+  margin-top: 20px;
+  font-weight: 700;
+  font-size: 70px;
+}
+.subBloque > span{
+  font-weight: 500;
+  font-size: 36px;
 }
 .mainFoter{
   height: 5%;
@@ -107,8 +322,9 @@
   justify-content: center;
   align-items: flex-end;
   padding-bottom: 15px;
+  color: #A09FB1;
 }
-@media screen and (min-width: 1025px){
+@media screen and (min-width: 1280px){
   .ctn{
     width: 100vw;
     height: 1024px;
@@ -121,17 +337,78 @@
     display: flex;
     flex-direction: column;
   }
-  .headSection{
+  .search-sidebar {
+    width: 0;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgb(30, 33, 58);
+    overflow-x: hidden;
+    transition: 0.3s;
+    padding-top: 60px;
+    z-index: 1000;
+    
+  }
+  
+  .search-sidebar.visible {
+    width: 30%;
+    height: 100vh;
+  }
+  
+  .sidebar-content {
+    padding: 20px;
+  }
+  .t-btn{
+    cursor: pointer;
+    padding: 8px 18px;
+    background-color: #6E707A;
+    color: #fff;
+    font-size: 15px;
+  }
+  .cityInput{
+    width: 250px;
+  }
+  .btn{
+    cursor: pointer;
+    padding: 5px 15px;
+    background-color: #2741c5;
+    color: aliceblue;
+    border: none;
+    outline: none;
+  }
+  
+  .close-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    padding: 5px 15px;
+    background-color: #2741c5;
+    color: aliceblue;
+  }
+  .headSection1{
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-  }
-  .head :nth-child(1){
     height: 10%;
+    padding: 0 40px;
   }
-  .head :nth-child(2){
+  .headSection1 .gps { 
+    height: 50px;
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #6E707A;
+    border-radius: 50%;
+  }
+  .headSection1 .gps > i{
+    color: #fff;
+  }
+  
+  .headSection2{
     height: 40%;
-    background-image: url(../public/Cloud-background.png);
     background-repeat: no-repeat;
     background-size: 150%;
     background-position: center;
@@ -145,21 +422,37 @@
   .head :nth-child(5){
     height: 7%;
   }
-  .head :nth-child(6){
+  .headSection6{
     height: 8%;
+    display: flex;
+    justify-content: center;
+    padding-top: 1.4em;
+    font-size: 1.3em;
+    font-weight: 500;
+    color: #fff;
+  }
+  .search-icon{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   width: 78px;
+   background-color: aliceblue;
+   cursor: pointer;
+
   }
   .main{
     height: 100%;
     width: 70%;
     display: flex;
     flex-direction: column;
-    padding: 0 180px;
+    padding: 0 100px;
   }
   .mainUp{
     height: 40%;
   }
   .mainUp1{
     height: 20%;
+    margin-right: 1px;
   }
   .mainUp2{
     height: 80%;
@@ -177,5 +470,18 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
+  }
+}
+@media screen and (min-width: 1440px){
+  .ctn{
+    width: 100vw;
+    height: 1024px;
+  }
+  .cityInput{
+    width: 300px;
+  }
+  
+  .main{
+    padding: 0 150px;
   }
 }
